@@ -1,8 +1,15 @@
 import React, { useRef, useState } from 'react';
 import { Picker } from '@react-native-picker/picker';
+import { useSelector, useDispatch } from 'react-redux';
+import { setSelected } from '../../action/equipements';
 
-const PickerList = ({ datas, onChange }) => {
-  const [selectedEquipement, setSelectedEquipement] = useState('test');
+const PickerList = ({ datas }) => {
+  const { selectedEquipement } = useSelector(
+    (state) => state.equipementsReducer,
+  );
+  console.warn(selectedEquipement)
+
+  const dispatch = useDispatch();
   const pickerRef = useRef();
   function open() {
     pickerRef.current.focus();
@@ -14,9 +21,11 @@ const PickerList = ({ datas, onChange }) => {
     <Picker
       ref={pickerRef}
       selectedValue={selectedEquipement}
-      onValueChange={(itemValue, itemIndex) => onChange(itemValue)}>
+      onValueChange={(itemValue, itemIndex) =>
+        dispatch(setSelected(itemValue))
+      }>
       {datas.map(({ name }) => (
-        <Picker.Item label={name} value={name} />
+        <Picker.Item key={name} label={name} value={name} />
       ))}
     </Picker>
   );
