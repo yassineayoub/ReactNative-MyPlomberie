@@ -12,7 +12,9 @@ const Check = ({ material }) => {
   const dispatch = useDispatch();
   return (
     <View style={styles.material}>
-      <Text variant="body1" style={styles.materialName}>{material}</Text>
+      <Text variant="body1" style={styles.materialName}>
+        {material}
+      </Text>
       <CheckBox
         style={styles.checkbox}
         disabled={false}

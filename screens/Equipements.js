@@ -1,11 +1,16 @@
 import { Button, Stack, Text } from '@react-native-material/core';
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView, SectionList, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
+import { addSelectedEquip } from '../action/equipements';
 import PickerList from '../components/PickerList/PickerList';
-import { equipements, tubeDataBase } from '../data/data';
-import Check from '../components/Check/Check';
+import { equipements } from '../data/data';
+
 
 const Equipements = () => {
+  const dispatch = useDispatch();
+  const { equip } = useSelector((state) => state.equipementsReducer);
+  console.log(equip)
   return (
     <View style={styles.section}>
       <View style={styles.headerContainer}>
@@ -17,8 +22,8 @@ const Equipements = () => {
       <Stack center>
         <Button
           style={{ width: '50%' }}
-          onPress={() => console.log('press')}
-          title="Ajouter"
+          onPress={() => dispatch(addSelectedEquip())}
+          title="Selectionner"
         />
       </Stack>
     </View>
