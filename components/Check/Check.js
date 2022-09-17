@@ -2,15 +2,17 @@ import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import CheckBox from '@react-native-community/checkbox';
-import { StyleSheet, Text, View } from 'react-native';
-import {  setSelectedMat } from '../../action/materials';
+import { StyleSheet, View } from 'react-native';
+
+import { setSelectedMat } from '../../action/materials';
+import { Text } from '@react-native-material/core';
 
 const Check = ({ material }) => {
   const { selectedMaterial } = useSelector((state) => state.materialsReducer);
   const dispatch = useDispatch();
   return (
     <View style={styles.material}>
-      <Text style={styles.materialName}>{material}</Text>
+      <Text variant="body1" style={styles.materialName}>{material}</Text>
       <CheckBox
         style={styles.checkbox}
         disabled={false}
