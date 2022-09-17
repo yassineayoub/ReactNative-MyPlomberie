@@ -4,8 +4,6 @@ import React, { useRef, useState } from 'react';
 import { Picker } from '@react-native-picker/picker';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
-import PickerList from '../PickerList/PickerList';
-import { equipements } from '../../data/data';
 import 'react-native-gesture-handler';
 import Main from '../Main/Main';
 

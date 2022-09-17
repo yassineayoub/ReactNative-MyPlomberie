@@ -1,4 +1,4 @@
-const { SET_SELECTED } = require('../action/equipements');
+const { SET_SELECTED_EQUIP } = require('../action/equipements');
 
 const initialState = {
   equip: [],
@@ -7,7 +7,7 @@ const initialState = {
 
 const equipementsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_SELECTED:
+    case SET_SELECTED_EQUIP:
       return {
         ...state,
         selectedEquipement: action.payload,

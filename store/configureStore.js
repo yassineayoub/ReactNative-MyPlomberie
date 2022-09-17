@@ -1,7 +1,8 @@
 import { createStore, combineReducers } from 'redux';
 
 import equipementsReducer from '../reducer/equipementsReducer';
-const rootReducer = combineReducers({ equipementsReducer });
+import materialsReducer from '../reducer/materialsReducer';
+const rootReducer = combineReducers({ equipementsReducer, materialsReducer });
 const configureStore = () => {
   return createStore(rootReducer);
 };
