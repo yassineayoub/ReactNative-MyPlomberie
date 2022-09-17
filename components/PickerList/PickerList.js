@@ -19,6 +19,7 @@ const PickerList = ({ datas }) => {
   }
   return (
     <Picker
+      numberOfLines={2}
       ref={pickerRef}
       selectedValue={selectedEquipement}
       onValueChange={(itemValue, itemIndex) =>
