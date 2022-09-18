@@ -1,4 +1,4 @@
-const { SET_SELECTED_MAT } = require('../action/materials');
+import { SET_SELECTED_MAT } from '../action/materials';
 
 const initialState = {
   selectedMaterial: null,

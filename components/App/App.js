@@ -1,20 +1,66 @@
-import { Button } from '@react-native-material/core';
 import { NavigationContainer } from '@react-navigation/native';
-import React, { useRef, useState } from 'react';
-import { Picker } from '@react-native-picker/picker';
-import { createStackNavigator } from '@react-navigation/stack';
+import React from 'react';
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import 'react-native-gesture-handler';
-import Main from '../Main/Main';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Materials from '../../screens/Materials';
+import Equipements from '../../screens/Equipements';
+import Quantities from '../../screens/Quantities';
 
-const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="MyPlomberie" component={Main} />
-        {/* <Stack.Screen name="ColorPalette" component={ColorPalette} /> */}
-      </Stack.Navigator>
+      {/* <MyTabs /> */}
+      <Tab.Navigator
+        initialRouteName="Equipements"
+        screenOptions={{
+          tabBarActiveTintColor: '#e91e63',
+        }}>
+        <Tab.Screen
+          name="Equipements"
+          component={Equipements}
+          options={{
+            tabBarLabel: 'Equipements',
+            // tabBarIcon: ({ color, size }) => (
+            //   <MaterialCommunityIcons
+            //     name="account"
+            //     // color={color}
+            //     // size={size}
+            //   />
+            // ),
+          }}
+        />
+        <Tab.Screen
+          name="Materials"
+          component={Materials}
+          options={{
+            tabBarLabel: 'Materiaux',
+            // tabBarIcon: ({ color, size }) => (
+            //   <MaterialCommunityIcons
+            //     name="account"
+            //     // color={color}
+            //     // size={size}
+            //   />
+            // ),
+          }}
+        />
+        <Tab.Screen
+          name="Quantities"
+          component={Quantities}
+          options={{
+            tabBarLabel: 'Quantités',
+            // tabBarIcon: ({ color, size }) => (
+            //   <MaterialCommunityIcons
+            //     name="account"
+            //     // color={color}
+            //     // size={size}
+            //   />
+            // ),
+          }}
+        />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 };
