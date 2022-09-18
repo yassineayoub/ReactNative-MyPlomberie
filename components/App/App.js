@@ -47,10 +47,10 @@ const App = () => {
           }}
         />
         <Tab.Screen
-          name="Quantités"
+          name="Quantities"
           component={Quantities}
           options={{
-            tabBarLabel: 'Qt',
+            tabBarLabel: 'Quantités',
             // tabBarIcon: ({ color, size }) => (
             //   <MaterialCommunityIcons
             //     name="account"

@@ -3,6 +3,7 @@ import {
   ADD_SELECTED_EQUIP,
   RESET_SELECTED_EQUIP,
   SET_PLUS_MINUS,
+  REMOVE_EQUIP,
 } from '../action/equipements';
 
 const initialState = {
@@ -47,12 +48,23 @@ const equipementsReducer = (state = initialState, action) => {
       } else if (plusOrMinus === 'minus') {
         updatedEquipList[indexEquipToUpdate].count -= 1;
         if (updatedEquipList[indexEquipToUpdate].count < 1) {
-          updatedEquipList = updatedEquipList.filter((eq) => eq.name !== equipement)
+          updatedEquipList = updatedEquipList.filter(
+            (eq) => eq.name !== equipement,
+          );;
         }
       }
       return {
         ...state,
         equip: updatedEquipList,
+      };
+    case REMOVE_EQUIP:
+      const equipToRemove = action.payload;
+      const updatedEquipArray = state.equip.filter(
+        (eq) => eq.name !== equipToRemove
+      );
+      return {
+        ...state,
+        equip: updatedEquipArray,
       };
     default:
       return state;

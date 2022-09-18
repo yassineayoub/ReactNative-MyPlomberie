@@ -8,9 +8,16 @@ import { addSelectedEquip, setSelectedEquip } from '../../action/equipements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const CheckEquips = ({ name }) => {
-  const { selectedEquipement, equip } = useSelector(
-    (state) => state.equipementsReducer,
-  );
+  const [bool, setBool] = useState(false);
+  const { equip } = useSelector((state) => state.equipementsReducer);
+
+  useEffect(() => {
+    if (equip.find((value) => value.name === name) !== undefined) {
+      setBool(true);
+    } else {
+      setBool(false);
+    }
+  }, [equip]);
   const dispatch = useDispatch();
   return (
     <View style={styles.checkboxContainer}>
@@ -19,8 +26,8 @@ const CheckEquips = ({ name }) => {
       </Text>
       <CheckBox
         disabled={false}
-        value={equip.includes(name)}
-        // onValueChange={(newValue) => setToggleCheckBox(newValue)}
+        value={bool}
+        // onValueChange={(newValue) => setBool(newValue)}
         onChange={() => dispatch(addSelectedEquip(name))}
       />
     </View>

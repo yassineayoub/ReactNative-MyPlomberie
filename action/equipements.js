@@ -29,3 +29,9 @@ export const setPlusMinus = (equipement, plusOrMinus) => ({
     equipement,
   },
 });
+
+export const REMOVE_EQUIP = 'REMOVE_EQUIP';
+export const removeEquip = (equipement) => ({
+  type: REMOVE_EQUIP,
+  payload: equipement,
+});

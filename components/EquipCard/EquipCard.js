@@ -2,7 +2,7 @@ import { Button, Stack, Surface, Text } from '@react-native-material/core';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { useDispatch } from 'react-redux';
-import { setPlusMinus } from '../../action/equipements';
+import { removeEquip, setPlusMinus } from '../../action/equipements';
 
 const EquipCard = ({ name, count }) => {
   const dispatch = useDispatch();
@@ -29,7 +29,13 @@ const EquipCard = ({ name, count }) => {
             />
           </Stack>
           <Stack direction="row" spacing={5}>
-            <Button style={styles.button} color="error" compact title="X" />
+            <Button
+              style={styles.button}
+              color="error"
+              compact
+              title="X"
+              onPress={() => dispatch(removeEquip(name))}
+            />
           </Stack>
         </Stack>
       </Surface>

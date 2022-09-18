@@ -1,10 +1,10 @@
 import { Text } from '@react-native-material/core';
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import Check from '../components/Check/Check';
 import { tubeDataBase } from '../data/data';
 
-const Materials = () => {
+const Materials = ({ navigation }) => {
   const [materials, setMaterials] = useState([]);
 
   useEffect(() => {
@@ -28,6 +28,11 @@ const Materials = () => {
           <Check key={material} material={material} />
         ))}
       </View>
+      <TouchableOpacity
+            style={[styles.button, { width: '50%', marginVertical: 10 }]}
+            onPress={() => navigation.navigate('Quantities')}>
+            <Text>Suivant</Text>
+          </TouchableOpacity>
     </View>
   );
 };

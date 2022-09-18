@@ -12,8 +12,9 @@ import { Link } from '@react-navigation/native';
 
 const Equipements = ({ navigation }) => {
   const dispatch = useDispatch();
+  const [equips, setEquips] = useState(equipements);
   const { equip } = useSelector((state) => state.equipementsReducer);
-  console.log(equip);
+
   return (
     <View style={styles.section}>
       <View style={styles.headerContainer}>
@@ -22,7 +23,7 @@ const Equipements = ({ navigation }) => {
         </Text>
       </View>
       <ScrollView>
-        {equipements.map((equipement) => (
+        {equips.map((equipement) => (
           <CheckEquips {...equipement} key={equipement.name} />
         ))}
         <Stack center>
