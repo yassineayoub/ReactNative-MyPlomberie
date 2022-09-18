@@ -23,7 +23,7 @@ const Equipements = ({ navigation }) => {
       </View>
       <ScrollView>
         {equipements.map((equipement) => (
-          <CheckEquips {...equipement} />
+          <CheckEquips {...equipement} key={equipement.name} />
         ))}
         <Stack center>
           <Button
@@ -34,9 +34,7 @@ const Equipements = ({ navigation }) => {
           <TouchableOpacity
             style={[styles.button, { width: '50%', marginVertical: 10 }]}
             onPress={() => navigation.navigate('Materials')}>
-            <Text variant="body2">
-              Suivant
-            </Text>
+            <Text>Suivant</Text>
           </TouchableOpacity>
         </Stack>
       </ScrollView>

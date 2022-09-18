@@ -5,6 +5,7 @@ import CheckBox from '@react-native-community/checkbox';
 import { StyleSheet, View } from 'react-native';
 import { Text } from '@react-native-material/core';
 import { addSelectedEquip, setSelectedEquip } from '../../action/equipements';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const CheckEquips = ({ name }) => {
   const { selectedEquipement, equip } = useSelector(

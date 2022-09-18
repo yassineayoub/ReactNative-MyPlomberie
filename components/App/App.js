@@ -1,17 +1,13 @@
 import { NavigationContainer } from '@react-navigation/native';
-import React, { useRef, useState } from 'react';
-import { Picker } from '@react-native-picker/picker';
-import { createStackNavigator } from '@react-navigation/stack';
+import React from 'react';
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import 'react-native-gesture-handler';
-import Main from '../../screens/Equipements';
-import MyTabs from '../MyTabs/MyTabs';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Materials from '../../screens/Materials';
 import Equipements from '../../screens/Equipements';
+import Quantities from '../../screens/Quantities';
 
-const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 const App = () => {
   return (
@@ -27,13 +23,13 @@ const App = () => {
           component={Equipements}
           options={{
             tabBarLabel: 'Equipements',
-            tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons
-                name="account"
-                color={color}
-                size={size}
-              />
-            ),
+            // tabBarIcon: ({ color, size }) => (
+            //   <MaterialCommunityIcons
+            //     name="account"
+            //     // color={color}
+            //     // size={size}
+            //   />
+            // ),
           }}
         />
         <Tab.Screen
@@ -41,13 +37,27 @@ const App = () => {
           component={Materials}
           options={{
             tabBarLabel: 'Materiaux',
-            tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons
-                name="account"
-                color={color}
-                size={size}
-              />
-            ),
+            // tabBarIcon: ({ color, size }) => (
+            //   <MaterialCommunityIcons
+            //     name="account"
+            //     // color={color}
+            //     // size={size}
+            //   />
+            // ),
+          }}
+        />
+        <Tab.Screen
+          name="Quantités"
+          component={Quantities}
+          options={{
+            tabBarLabel: 'Qt',
+            // tabBarIcon: ({ color, size }) => (
+            //   <MaterialCommunityIcons
+            //     name="account"
+            //     // color={color}
+            //     // size={size}
+            //   />
+            // ),
           }}
         />
       </Tab.Navigator>

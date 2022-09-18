@@ -14,4 +14,3 @@ export const RESET_SELECTED_EQUIP = 'RESET_SELECTED_EQUIP';
 export const resetSelectedEquip = () => ({
   type: RESET_SELECTED_EQUIP,
 });
-

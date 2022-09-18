@@ -10,12 +10,6 @@ const PickerList = ({ datas }) => {
   );
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (!selectedEquipement) {
-      dispatch(setSelectedEquip(datas[0].name));
-    }
-  }, []);
-
   const pickerRef = useRef();
   function open() {
     pickerRef.current.focus();
@@ -32,7 +26,12 @@ const PickerList = ({ datas }) => {
         dispatch(setSelectedEquip(itemValue))
       }>
       {datas.map(({ name }) => (
-        <Picker.Item key={name} color={ equip.includes(name) ? 'green' : ''} label={name} value={name} />
+        <Picker.Item
+          key={name}
+          color={equip.includes(name) ? 'green' : ''}
+          label={name}
+          value={name}
+        />
       ))}
     </Picker>
   );
