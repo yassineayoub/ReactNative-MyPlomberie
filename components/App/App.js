@@ -7,7 +7,7 @@ import 'react-native-gesture-handler';
 import Main from '../../screens/Equipements';
 import MyTabs from '../MyTabs/MyTabs';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Materials from '../../screens/Materials';
 import Equipements from '../../screens/Equipements';
 
@@ -18,7 +18,7 @@ const App = () => {
     <NavigationContainer>
       {/* <MyTabs /> */}
       <Tab.Navigator
-        initialRouteName="Main"
+        initialRouteName="Equipements"
         screenOptions={{
           tabBarActiveTintColor: '#e91e63',
         }}>
@@ -37,7 +37,7 @@ const App = () => {
           }}
         />
         <Tab.Screen
-          name="Materiaux"
+          name="Materials"
           component={Materials}
           options={{
             tabBarLabel: 'Materiaux',
