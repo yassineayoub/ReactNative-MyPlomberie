@@ -1,7 +1,8 @@
-const {
+import {
   SET_SELECTED_EQUIP,
   ADD_SELECTED_EQUIP,
-} = require('../action/equipements');
+  RESET_SELECTED_EQUIP,
+} from '../action/equipements';
 
 const initialState = {
   equip: [],
@@ -16,9 +17,20 @@ const equipementsReducer = (state = initialState, action) => {
         selectedEquipement: action.payload,
       };
     case ADD_SELECTED_EQUIP:
+      const checkedEquipement = action.payload;
+      let newEquipsList = [];
+      if (state.equip.includes(checkedEquipement)) {
+        newEquipsList = state.equip.filter((eq) => eq !== checkedEquipement);
+      } else {
+        newEquipsList = [...state.equip, checkedEquipement];
+      }
       return {
         ...state,
-        equip: [...state.equip, state.selectedEquipement],
+        equip: newEquipsList,
+      };
+    case RESET_SELECTED_EQUIP:
+      return {
+        ...initialState,
       };
     default:
       return state;
