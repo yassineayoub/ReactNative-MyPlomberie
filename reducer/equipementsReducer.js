@@ -2,6 +2,7 @@ import {
   SET_SELECTED_EQUIP,
   ADD_SELECTED_EQUIP,
   RESET_SELECTED_EQUIP,
+  SET_PLUS_MINUS,
 } from '../action/equipements';
 
 const initialState = {
@@ -19,10 +20,12 @@ const equipementsReducer = (state = initialState, action) => {
     case ADD_SELECTED_EQUIP:
       const checkedEquipement = action.payload;
       let newEquipsList = [];
-      if (state.equip.includes(checkedEquipement)) {
-        newEquipsList = state.equip.filter((eq) => eq !== checkedEquipement);
+      if (state.equip.find((eq) => eq.name === checkedEquipement)) {
+        newEquipsList = state.equip.filter(
+          (eq) => eq.name !== checkedEquipement,
+        );
       } else {
-        newEquipsList = [...state.equip, checkedEquipement];
+        newEquipsList = [...state.equip, { name: checkedEquipement, count: 1 }];
       }
       return {
         ...state,
@@ -31,6 +34,25 @@ const equipementsReducer = (state = initialState, action) => {
     case RESET_SELECTED_EQUIP:
       return {
         ...initialState,
+      };
+    case SET_PLUS_MINUS:
+      const { plusOrMinus, equipement } = action.payload;
+      let updatedEquipList = [...state.equip];
+      const indexEquipToUpdate = updatedEquipList.findIndex(
+        (eq) => eq.name === equipement,
+      );
+
+      if (plusOrMinus === 'plus') {
+        updatedEquipList[indexEquipToUpdate].count += 1;
+      } else if (plusOrMinus === 'minus') {
+        updatedEquipList[indexEquipToUpdate].count -= 1;
+        if (updatedEquipList[indexEquipToUpdate].count < 1) {
+          updatedEquipList = updatedEquipList.filter((eq) => eq.name !== equipement)
+        }
+      }
+      return {
+        ...state,
+        equip: updatedEquipList,
       };
     default:
       return state;

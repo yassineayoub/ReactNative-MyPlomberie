@@ -14,3 +14,18 @@ export const RESET_SELECTED_EQUIP = 'RESET_SELECTED_EQUIP';
 export const resetSelectedEquip = () => ({
   type: RESET_SELECTED_EQUIP,
 });
+
+export const SET_PLUS_MINUS = 'SET_PLUS_MINUS';
+/**
+ * 
+ * @param {String} equipement equipement name to update
+ * @param {String} PlusOrMinus 'plus' or 'minus'
+ * @returns void
+ */
+export const setPlusMinus = (equipement, plusOrMinus) => ({
+  type: SET_PLUS_MINUS,
+  payload: {
+    plusOrMinus,
+    equipement,
+  },
+});
