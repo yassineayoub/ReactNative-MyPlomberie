@@ -6,7 +6,6 @@ import { tubeDataBase } from '../data/data';
 
 const Materials = ({ navigation }) => {
   const [materials, setMaterials] = useState([]);
-
   useEffect(() => {
     tubeDataBase.reduce((arr, value) => {
       materials.includes(value.type)
@@ -18,11 +17,6 @@ const Materials = ({ navigation }) => {
 
   return (
     <View>
-      <View style={styles.headerContainer}>
-        <Text variant="h5" style={[styles.header]}>
-          Choisir un matériau
-        </Text>
-      </View>
       <View style={{ marginTop: 20 }}>
         {materials.map((material) => (
           <Check key={material} material={material} />

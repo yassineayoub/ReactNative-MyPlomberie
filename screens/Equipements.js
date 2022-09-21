@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import { Button, Stack, Text } from '@react-native-material/core';
+import { Button, Stack, Text, Surface } from '@react-native-material/core';
 import React, { useEffect, useState } from 'react';
 import { ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
@@ -17,26 +17,21 @@ const Equipements = ({ navigation }) => {
 
   return (
     <View style={styles.section}>
-      <View style={styles.headerContainer}>
-        <Text variant="h5" style={styles.header}>
-          Choisir vos equipements
-        </Text>
-      </View>
       <ScrollView>
         {equips.map((equipement) => (
           <CheckEquips {...equipement} key={equipement.name} />
         ))}
-        <Stack center>
+        <Stack center spacing={10} style={{marginTop: 10}}>
           <Button
-            style={{ width: '50%', marginTop: 10 }}
+            style={[styles.button.next,styles.button.btn]}
+            onPress={() => navigation.navigate('Materiaux')}
+            title="Suivant"
+            />
+          <Button
+            style={[styles.button.err,styles.button.btn]}
             onPress={() => dispatch(resetSelectedEquip())}
             title="Reinitialiser"
           />
-          <TouchableOpacity
-            style={[styles.button, { width: '50%', marginVertical: 10 }]}
-            onPress={() => navigation.navigate('Materials')}>
-            <Text>Suivant</Text>
-          </TouchableOpacity>
         </Stack>
       </ScrollView>
     </View>
@@ -48,18 +43,30 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   headerContainer: {
-    borderWidth: 1,
-    borderBottomWidth: 2,
-    padding: 10,
+    height: 60,
+    marginVertical: 5,
+    marginHorizontal: 5,
+    alignItems: 'center',
     display: 'flex',
+    justifyContent: 'center'
+    
   },
   section: {
     height: '100%',
   },
   button: {
-    alignItems: 'center',
-    backgroundColor: '#DDDDDD',
-    padding: 10,
+    btn: {
+      alignItems: 'center',
+      width: "60%",
+      padding: 5,
+    },
+    // backgroundColor: '#DDDDDD',
+    next: {
+      backgroundColor:'#0bb4ff',
+    },
+    err: {
+      backgroundColor:'#e60049',
+    },
   },
 });
 

@@ -21,6 +21,15 @@ const App = () => {
           name="Equipements"
           component={Equipements}
           options={{
+            title: "Liste d'équipements",
+            headerStyle: {
+              backgroundColor: '#0bb4ff',
+              },
+            headerTintColor: '#FFF',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+              fontSize: 20,
+            },
             tabBarLabel: 'Equipements',
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons
@@ -35,6 +44,15 @@ const App = () => {
           name="Materiaux"
           component={Materials}
           options={{
+            title: "Materiaux",
+            headerStyle: {
+              backgroundColor: '#0bb4ff',
+              },
+            headerTintColor: '#FFF',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+              fontSize: 20,
+            },
             tabBarLabel: 'Materiaux',
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons
@@ -46,9 +64,18 @@ const App = () => {
           }}
         />
         <Tab.Screen
-          name="Nombre d'equipements"
+          name="Quantities"
           component={Quantities}
           options={{
+            title: "Nombre d'appareils",
+            headerStyle: {
+              backgroundColor: '#0bb4ff',
+              },
+            headerTintColor: '#FFF',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+              fontSize: 20,
+            },
             tabBarLabel: 'Quantités',
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons

@@ -26,9 +26,9 @@ const CheckEquips = ({ name }) => {
 
   const dispatch = useDispatch();
   return (
-    <View style={styles.checkboxContainer}>
-    <Pressable onPress={handleCheckBox}>
-      <Surface elevation={2} category="medium" onPress={() => console.log('ok')} style={styles.surface}>
+
+    <Pressable style={styles.checkboxContainer} onPress={handleCheckBox}>
+      <Surface elevation={2} category="medium" onPress={() => console.log('ok')} style={bool ? [styles.surfacePressed, styles.surface ]: styles.surface}>
         <Text variant="body1" style={styles.checkboxName}>
           {name}
         </Text>
@@ -41,16 +41,17 @@ const CheckEquips = ({ name }) => {
         />
       </Surface>
       </Pressable>
-    </View>
   );
 };
 
 const styles = StyleSheet.create({
   checkboxContainer: {
     marginHorizontal: 15,
+    // paddingHorizontal: 15,
   },
+
   checkboxName: {
-    width: '50%',
+    fontSize: 18,
   },
   checkbox: {
     height:30,
@@ -65,6 +66,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     alignItems: 'center',
     height: 70,
+  },
+  surfacePressed: {
+    backgroundColor: '#b3d4ff',
   },
 });
 
