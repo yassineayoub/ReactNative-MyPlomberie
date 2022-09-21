@@ -41,7 +41,7 @@ const App = () => {
           }}
         />
         <Tab.Screen
-          name="Materiaux"
+          name="Materials"
           component={Materials}
           options={{
             title: "Materiaux",

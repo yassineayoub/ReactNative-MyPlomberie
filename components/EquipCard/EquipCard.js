@@ -8,7 +8,6 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome5';
 const EquipCard = ({ name, count }) => {
   const dispatch = useDispatch();
   return (
-    <Stack>
       <Surface elevation={1} category="medium" style={styles.surface}>
         <Text>{name}</Text>
         <Stack direction="row" spacing={30}>
@@ -16,22 +15,22 @@ const EquipCard = ({ name, count }) => {
             <Text>x {count}</Text>
           </View>
           <Stack direction="row" spacing={5}>
-          <IconButton
-            icon={props => <FontAwesome style={styles.button} name='plus' {...props} />}
-            color="primary"
-            onPress={() => dispatch(setPlusMinus(name, 'plus'))}
-          />
-          <IconButton
-            icon={props => <FontAwesome style={styles.button} name='minus' {...props} />}
-            color="primary"
-            onPress={() => dispatch(setPlusMinus(name, 'minus'))}
-          />
+            <IconButton
+              icon={props => <FontAwesome style={styles.button} name='plus' {...props} />}
+              color="primary"
+              onPress={() => dispatch(setPlusMinus(name, 'plus'))}
+            />
+            <IconButton
+              icon={props => <FontAwesome style={styles.button} name='minus' {...props} />}
+              color="primary"
+              onPress={() => dispatch(setPlusMinus(name, 'minus'))}
+            />
           </Stack>
           <Stack direction="row" sx={{alignItems: 'center'}} spacing={5}>
           <IconButton
             icon={props => <MaterialCommunityIcons style={styles.button} name='delete' {...props} />}
             color="error"
-            size={60}
+            size={45}
             onPress={() => dispatch(removeEquip(name))}
           />
             {/* <Button
@@ -44,7 +43,6 @@ const EquipCard = ({ name, count }) => {
           </Stack>
         </Stack>
       </Surface>
-    </Stack>
   );
 };
 
@@ -59,6 +57,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     alignItems: 'center',
     height: 100,
+    width: '90%'
   },
   counter: {
     display: 'flex',

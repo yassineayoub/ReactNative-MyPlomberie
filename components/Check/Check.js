@@ -2,45 +2,63 @@ import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 // import CheckBox from '@react-native-community/checkbox';
-import { StyleSheet, View } from 'react-native';
+import { Pressable, StyleSheet, View } from 'react-native';
 import Checkbox from 'expo-checkbox';
 import { setSelectedMat } from '../../action/materials';
-import { Text } from '@react-native-material/core';
+import { Text, Surface } from '@react-native-material/core';
 
-const Check = ({ material }) => {
+const Check = ({ name }) => {
   const [bool, setBool] = useState(false);
   const { selectedMaterial } = useSelector((state) => state.materialsReducer);
   const dispatch = useDispatch();
-  const handleCheckBox = (newValue) => {
-    setBool(newValue);
-    dispatch(setSelectedMat(material))
+  const handleCheckBox = () => {
+    setBool(!bool);
+    dispatch(setSelectedMat(name))
   }
   return (
-    <View style={styles.material}>
-      <Text variant="body1" style={styles.materialName}>
-        {material}
-      </Text>
-      <Checkbox
-        style={styles.checkbox}
-        disabled={false}
-        value={selectedMaterial === material}
-        onValueChange={handleCheckBox}
-      />
-    </View>
+    <Pressable style={styles.checkboxContainer} onPress={handleCheckBox}>
+      <Surface elevation={2} category="medium" style={selectedMaterial === name ? [styles.surfacePressed, styles.surface ]: styles.surface}>
+        <Text variant="body1" style={styles.checkboxName}>
+          {name}
+        </Text>
+        <Checkbox
+          disabled={false}
+          value={selectedMaterial === name}
+          style={styles.checkbox}
+          // onChange={(e) => console.log(e)}
+          onValueChange={handleCheckBox}
+        />
+      </Surface>
+    </Pressable>
   );
 };
 
+
 const styles = StyleSheet.create({
-  material: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    width: '100%',
-    justifyContent: 'center',
-    marginVertical: 5,
+  checkboxContainer: {
+    marginHorizontal: 15,
+    width: '90%',
   },
-  materialName: {
-    width: '50%',
+
+  checkboxName: {
+    fontSize: 18,
+  },
+  checkbox: {
+    height:30,
+    width: 30,
+    margin: 10,
+    borderRadius: 30
+  },
+  surface: {
+    flexDirection: 'row',
+    marginVertical: 3,
+    justifyContent: 'space-between',
+    paddingHorizontal: 10,
+    alignItems: 'center',
+    height: 70,
+  },
+  surfacePressed: {
+    backgroundColor: '#b3d4ff',
   },
 });
 

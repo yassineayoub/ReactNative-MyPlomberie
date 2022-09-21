@@ -1,4 +1,4 @@
-import { Stack, Text } from '@react-native-material/core';
+import { Stack, Text, Button } from '@react-native-material/core';
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import Check from '../components/Check/Check';
@@ -16,39 +16,48 @@ const Materials = ({ navigation }) => {
   }, [materials]);
 
   return (
-    <View>
-      <View style={{ marginTop: 20 }}>
+      <Stack style={styles.section}>
+
         {materials.map((material) => (
-          <Check key={material} material={material} />
+          <Check key={material} name={material} />
         ))}
-      </View>
-      <Stack center>
-        <TouchableOpacity
-          style={[styles.button, { width: '50%', marginVertical: 10 }]}
-          onPress={() => navigation.navigate('Quantities')}>
-          <Text>Suivant</Text>
-        </TouchableOpacity>
+        
+      <Button
+        style={[styles.button.next,styles.button.btn]}
+        onPress={() => navigation.navigate('Quantities')}
+        title="Suivant"
+        />
       </Stack>
-    </View>
   );
 };
 const styles = StyleSheet.create({
-  header: {
-    textAlign: 'center',
-  },
   headerContainer: {
-    borderWidth: 1,
-    borderBottomWidth: 2,
-    padding: 10,
-    display: 'flex',
-  },
-  button: {
+    height: 60,
+    marginVertical: 5,
+    marginHorizontal: 5,
     alignItems: 'center',
-    backgroundColor: '#DDDDDD',
-    padding: 10,
+    display: 'flex',
+    justifyContent: 'center'
+    
   },
   section: {
-    marginBottom: 20,
+    height: '100%',
+    alignItems: 'center'
+  },
+  button: {
+    btn: {
+      marginTop: 15,
+      alignItems: 'center',
+      width: '90%',
+      padding: 5,
+    },
+    // backgroundColor: '#DDDDDD',
+    // next: {
+    //   backgroundColor:'#0bb4ff',
+    // },
+    err: {
+      backgroundColor:'#e60049',
+    },
   },
 });
 

@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import { Button, Stack, Text, Surface } from '@react-native-material/core';
+import { Button, Stack, Text, Surface, Snackbar } from '@react-native-material/core';
 import React, { useEffect, useState } from 'react';
 import { ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,11 +12,26 @@ import { Link } from '@react-navigation/native';
 
 const Equipements = ({ navigation }) => {
   const dispatch = useDispatch();
+  const [count, setCount] = useState(0);
+  const [close, setClose] = useState(false);
   const [equips, setEquips] = useState(equipements.sort((a, b) => a.name.localeCompare(b.name)));
   const { equip } = useSelector((state) => state.equipementsReducer);
-
+console.log(count)
+  useEffect(() => {
+    setCount(equip.length)
+  }, [equip])
   return (
     <View style={styles.section}>
+    {/* <Text> */}
+    <Stack center>
+    {count !== 0 &&
+    <Snackbar
+      style={styles.snackbar}
+      message={count > 1 ? `${count} equipements selectionnés` : `${count} equipement selectionné`}
+    />
+    }
+    </Stack>
+    {/* </Text> */}
       <ScrollView>
         {equips.map((equipement) => (
           <CheckEquips {...equipement} key={equipement.name} />
@@ -24,7 +39,7 @@ const Equipements = ({ navigation }) => {
         <Stack center spacing={10} style={{marginTop: 10}}>
           <Button
             style={[styles.button.next,styles.button.btn]}
-            onPress={() => navigation.navigate('Materiaux')}
+            onPress={() => navigation.navigate('Materials')}
             title="Suivant"
             />
           <Button
@@ -51,19 +66,24 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
     
   },
+  snackbar: {
+    width: '90%',
+    margin: 10
+  },
   section: {
     height: '100%',
+    width: '100%',
   },
   button: {
     btn: {
       alignItems: 'center',
-      width: "60%",
+      width: "90%",
       padding: 5,
     },
     // backgroundColor: '#DDDDDD',
-    next: {
-      backgroundColor:'#0bb4ff',
-    },
+    // next: {
+    //   backgroundColor:'#0bb4ff',
+    // },
     err: {
       backgroundColor:'#e60049',
     },
