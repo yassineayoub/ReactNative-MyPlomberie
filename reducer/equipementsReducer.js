@@ -5,6 +5,7 @@ import {
   SET_PLUS_MINUS,
   REMOVE_EQUIP,
 } from '../action/equipements';
+import { equipements } from '../data/data';
 
 const initialState = {
   equip: [],
@@ -20,13 +21,14 @@ const equipementsReducer = (state = initialState, action) => {
       };
     case ADD_SELECTED_EQUIP:
       const checkedEquipement = action.payload;
+      const equipObject = equipements.find((equip) => equip.name === checkedEquipement)
       let newEquipsList = [];
       if (state.equip.find((eq) => eq.name === checkedEquipement)) {
         newEquipsList = state.equip.filter(
           (eq) => eq.name !== checkedEquipement,
         );
       } else {
-        newEquipsList = [...state.equip, { name: checkedEquipement, count: 1 }];
+        newEquipsList = [...state.equip, { ...equipObject, count: 1 }];
       }
       return {
         ...state,

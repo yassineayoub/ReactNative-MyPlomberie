@@ -4,9 +4,11 @@ import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import 'react-native-gesture-handler';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome5';
 import Materials from '../../screens/Materials';
 import Equipements from '../../screens/Equipements';
 import Quantities from '../../screens/Quantities';
+import Result from '../../screens/Result';
 
 const Tab = createBottomTabNavigator();
 const App = () => {
@@ -86,6 +88,30 @@ const App = () => {
             ),
           }}
         />
+        <Tab.Screen
+          name="Result"
+          component={Result}
+          options={{
+            title: "Dimensionnement des réseaux",
+            headerStyle: {
+              backgroundColor: '#0bb4ff',
+              },
+            headerTintColor: '#FFF',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+              fontSize: 20,
+            },
+            tabBarLabel: 'Calculs',
+            tabBarIcon: ({ color, size }) => (
+              <FontAwesome
+                name="calculator"
+                color={color}
+                size={size}
+              />
+            ),
+          }}
+        />
+        
       </Tab.Navigator>
     </NavigationContainer>
   );

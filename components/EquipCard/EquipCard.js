@@ -9,12 +9,13 @@ const EquipCard = ({ name, count }) => {
   const dispatch = useDispatch();
   return (
       <Surface elevation={1} category="medium" style={styles.surface}>
-        <Text>{name}</Text>
-        <Stack direction="row" spacing={30}>
-          <View style={styles.counter}>
-            <Text>x {count}</Text>
-          </View>
-          <Stack direction="row" spacing={5}>
+        <View style={styles.text}>
+          <Text>{name}</Text>
+        </View>
+          <Stack direction="row" spacing={5} style={styles.btnGroup}>
+            <View style={styles.counter}>
+              <Text>x {count}</Text>
+            </View>
             <IconButton
               icon={props => <FontAwesome style={styles.button} name='plus' {...props} />}
               color="primary"
@@ -25,31 +26,18 @@ const EquipCard = ({ name, count }) => {
               color="primary"
               onPress={() => dispatch(setPlusMinus(name, 'minus'))}
             />
-          </Stack>
-          <Stack direction="row" sx={{alignItems: 'center'}} spacing={5}>
-          <IconButton
-            icon={props => <MaterialCommunityIcons style={styles.button} name='delete' {...props} />}
-            color="error"
-            size={45}
-            onPress={() => dispatch(removeEquip(name))}
-          />
-            {/* <Button
-              style={styles.button}
+            <IconButton
+              icon={props => <MaterialCommunityIcons style={styles.button} name='delete' {...props} />}
               color="error"
-              compact
-              
+              size={45}
               onPress={() => dispatch(removeEquip(name))}
-            /> */}
+            />
           </Stack>
-        </Stack>
       </Surface>
   );
 };
 
 const styles = StyleSheet.create({
-  button: {
-    fontSize: 40
-  },
   surface: {
     flexDirection: 'row',
     marginVertical: 5,
@@ -58,6 +46,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: 100,
     width: '90%'
+  },
+  button: {
+    fontSize: 30
+  },
+  btnGroup: {
+    width: '50%',
+    justifyContent: 'flex-end'
+  },
+  text: {
+    maxWidth: '30%',
   },
   counter: {
     display: 'flex',

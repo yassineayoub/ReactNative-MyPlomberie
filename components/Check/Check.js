@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
 
   checkboxName: {
     fontSize: 18,
+    maxWidth: '80%',
   },
   checkbox: {
     height:30,
@@ -53,7 +54,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginVertical: 3,
     justifyContent: 'space-between',
-    paddingHorizontal: 10,
+    paddingHorizontal: 30,
     alignItems: 'center',
     height: 70,
   },

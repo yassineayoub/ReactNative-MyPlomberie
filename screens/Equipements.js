@@ -16,22 +16,19 @@ const Equipements = ({ navigation }) => {
   const [close, setClose] = useState(false);
   const [equips, setEquips] = useState(equipements.sort((a, b) => a.name.localeCompare(b.name)));
   const { equip } = useSelector((state) => state.equipementsReducer);
-console.log(count)
   useEffect(() => {
     setCount(equip.length)
   }, [equip])
   return (
     <View style={styles.section}>
-    {/* <Text> */}
     <Stack center>
     {count !== 0 &&
     <Snackbar
       style={styles.snackbar}
-      message={count > 1 ? `${count} equipements selectionnés` : `${count} equipement selectionné`}
+      message={count > 1 ? `${count} équipements sélectionnés` : `${count} équipement sélectionné`}
     />
     }
     </Stack>
-    {/* </Text> */}
       <ScrollView>
         {equips.map((equipement) => (
           <CheckEquips {...equipement} key={equipement.name} />
@@ -68,7 +65,8 @@ const styles = StyleSheet.create({
   },
   snackbar: {
     width: '90%',
-    margin: 10
+    margin: 10,
+    textAlign: 'center'
   },
   section: {
     height: '100%',

@@ -12,12 +12,11 @@ const Quantities = () => {
   equip.sort((a, b) => a.name.localeCompare(b.name));
   return (
     <ScrollView >
-    <View style={styles.section}>
-
-      {equip.map((eq) => (
-        <EquipCard {...eq} key={eq.name} />
-      ))}
-    </View>
+      <View style={styles.section}>
+        {equip.map((eq) => (
+          <EquipCard {...eq} key={eq.name} />
+        ))}
+      </View>
     </ScrollView>
   );
 };
