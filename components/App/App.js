@@ -25,7 +25,7 @@ const App = () => {
           options={{
             title: "Liste d'équipements",
             headerStyle: {
-              backgroundColor: '#0bb4ff',
+              backgroundColor: '#0096C7',
               },
             headerTintColor: '#FFF',
             headerTitleStyle: {
@@ -48,7 +48,7 @@ const App = () => {
           options={{
             title: "Materiaux",
             headerStyle: {
-              backgroundColor: '#0bb4ff',
+              backgroundColor: '#0096C7',
               },
             headerTintColor: '#FFF',
             headerTitleStyle: {
@@ -71,7 +71,7 @@ const App = () => {
           options={{
             title: "Nombre d'appareils",
             headerStyle: {
-              backgroundColor: '#0bb4ff',
+              backgroundColor: '#0096C7',
               },
             headerTintColor: '#FFF',
             headerTitleStyle: {
@@ -94,7 +94,7 @@ const App = () => {
           options={{
             title: "Dimensionnement des réseaux",
             headerStyle: {
-              backgroundColor: '#0bb4ff',
+              backgroundColor: '#0096C7',
               },
             headerTintColor: '#FFF',
             headerTitleStyle: {

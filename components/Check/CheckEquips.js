@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     height: 70,
   },
   surfacePressed: {
-    backgroundColor: '#b3d4ff',
+    backgroundColor: '#90E0EF',
   },
 });
 

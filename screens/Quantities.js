@@ -66,6 +66,7 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       width: '90%',
       padding: 5,
+      backgroundColor: '#48CAE4'
     },
     err: {
       backgroundColor:'#e60049',

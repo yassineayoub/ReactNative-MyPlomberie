@@ -35,12 +35,12 @@ const Equipements = ({ navigation }) => {
         ))}
         <Stack center spacing={10} style={{marginTop: 10}}>
           <Button
-            style={[styles.button.next,styles.button.btn]}
+            style={styles.button.btn}
             onPress={() => navigation.navigate('Materials')}
             title="Suivant"
             />
           <Button
-            style={[styles.button.err,styles.button.btn]}
+            style={[styles.button.btn, styles.button.err,]}
             onPress={() => dispatch(resetSelectedEquip())}
             title="Reinitialiser"
           />
@@ -77,6 +77,7 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       width: "90%",
       padding: 5,
+      backgroundColor: '#48CAE4'
     },
     // backgroundColor: '#DDDDDD',
     // next: {
