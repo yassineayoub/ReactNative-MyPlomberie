@@ -16,45 +16,39 @@ const Materials = ({ navigation }) => {
   }, [materials]);
 
   return (
-      <Stack style={styles.section}>
-
-        {materials.map((material) => (
-          <Check key={material} name={material} />
-        ))}
-        
-      <Button
-        style={[styles.button.next,styles.button.btn]}
-        onPress={() => navigation.navigate('Quantities')}
-        title="Suivant"
-        />
+      <Stack direction="column" justify="between" style={styles.section}>
+        <View>
+          {materials.map((material) => (
+            <Check key={material} name={material} />
+          ))}
+        </View>
+        <View style={styles.buttonContainer}>
+          <Button
+            style={[styles.button.next,styles.button.btn]}
+            onPress={() => navigation.navigate('Quantities')}
+            title="Suivant"
+            />
+          </View>
       </Stack>
   );
 };
 const styles = StyleSheet.create({
-  headerContainer: {
-    height: 60,
-    marginVertical: 5,
-    marginHorizontal: 5,
-    alignItems: 'center',
-    display: 'flex',
-    justifyContent: 'center'
-    
-  },
   section: {
-    height: '100%',
-    alignItems: 'center'
+    height: '98%',
+    display: 'flex',
+  },
+  buttonContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
   },
   button: {
     btn: {
-      marginTop: 15,
+      margin: 20,
       alignItems: 'center',
       width: '90%',
       padding: 5,
     },
-    // backgroundColor: '#DDDDDD',
-    // next: {
-    //   backgroundColor:'#0bb4ff',
-    // },
     err: {
       backgroundColor:'#e60049',
     },
