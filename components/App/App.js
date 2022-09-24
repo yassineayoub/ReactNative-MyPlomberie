@@ -1,6 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import 'react-native-gesture-handler';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -18,7 +18,8 @@ const App = () => {
         initialRouteName="Equipements"
         screenOptions={{
           tabBarActiveTintColor: '#e91e63',
-        }}>
+        }}
+      >
         <Tab.Screen
           name="Equipements"
           component={Equipements}
@@ -26,7 +27,7 @@ const App = () => {
             title: "Liste d'équipements",
             headerStyle: {
               backgroundColor: '#0096C7',
-              },
+            },
             headerTintColor: '#FFF',
             headerTitleStyle: {
               fontWeight: 'bold',
@@ -34,11 +35,7 @@ const App = () => {
             },
             tabBarLabel: 'Equipements',
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons
-                name="toilet"
-                color={color}
-                size={size}
-              />
+              <MaterialCommunityIcons name="toilet" color={color} size={size} />
             ),
           }}
         />
@@ -46,10 +43,10 @@ const App = () => {
           name="Materials"
           component={Materials}
           options={{
-            title: "Materiaux",
+            title: 'Materiaux',
             headerStyle: {
               backgroundColor: '#0096C7',
-              },
+            },
             headerTintColor: '#FFF',
             headerTitleStyle: {
               fontWeight: 'bold',
@@ -57,11 +54,7 @@ const App = () => {
             },
             tabBarLabel: 'Materiaux',
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons
-                name="pipe"
-                color={color}
-                size={size}
-              />
+              <MaterialCommunityIcons name="pipe" color={color} size={size} />
             ),
           }}
         />
@@ -72,7 +65,7 @@ const App = () => {
             title: "Nombre d'appareils",
             headerStyle: {
               backgroundColor: '#0096C7',
-              },
+            },
             headerTintColor: '#FFF',
             headerTitleStyle: {
               fontWeight: 'bold',
@@ -92,10 +85,10 @@ const App = () => {
           name="Result"
           component={Result}
           options={{
-            title: "Dimensionnement des réseaux",
+            title: 'Dimensionnement des réseaux',
             headerStyle: {
               backgroundColor: '#0096C7',
-              },
+            },
             headerTintColor: '#FFF',
             headerTitleStyle: {
               fontWeight: 'bold',
@@ -103,15 +96,10 @@ const App = () => {
             },
             tabBarLabel: 'Calculs',
             tabBarIcon: ({ color, size }) => (
-              <FontAwesome
-                name="calculator"
-                color={color}
-                size={size}
-              />
+              <FontAwesome name="calculator" color={color} size={size} />
             ),
           }}
         />
-        
       </Tab.Navigator>
     </NavigationContainer>
   );

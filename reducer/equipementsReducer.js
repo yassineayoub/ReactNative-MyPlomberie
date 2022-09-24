@@ -21,7 +21,9 @@ const equipementsReducer = (state = initialState, action) => {
       };
     case ADD_SELECTED_EQUIP:
       const checkedEquipement = action.payload;
-      const equipObject = equipements.find((equip) => equip.name === checkedEquipement)
+      const equipObject = equipements.find(
+        (equip) => equip.name === checkedEquipement,
+      );
       let newEquipsList = [];
       if (state.equip.find((eq) => eq.name === checkedEquipement)) {
         newEquipsList = state.equip.filter(
@@ -52,7 +54,7 @@ const equipementsReducer = (state = initialState, action) => {
         if (updatedEquipList[indexEquipToUpdate].count < 1) {
           updatedEquipList = updatedEquipList.filter(
             (eq) => eq.name !== equipement,
-          );;
+          );
         }
       }
       return {
@@ -62,7 +64,7 @@ const equipementsReducer = (state = initialState, action) => {
     case REMOVE_EQUIP:
       const equipToRemove = action.payload;
       const updatedEquipArray = state.equip.filter(
-        (eq) => eq.name !== equipToRemove
+        (eq) => eq.name !== equipToRemove,
       );
       return {
         ...state,

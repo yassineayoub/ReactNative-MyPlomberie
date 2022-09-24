@@ -1,8 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // import CheckBox from '@react-native-community/checkbox';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, StyleSheet } from 'react-native';
 import Checkbox from 'expo-checkbox';
 import { setSelectedMat } from '../../action/materials';
 import { Text, Surface } from '@react-native-material/core';
@@ -13,11 +12,19 @@ const Check = ({ name }) => {
   const dispatch = useDispatch();
   const handleCheckBox = () => {
     setBool(!bool);
-    dispatch(setSelectedMat(name))
-  }
+    dispatch(setSelectedMat(name));
+  };
   return (
     <Pressable style={styles.checkboxContainer} onPress={handleCheckBox}>
-      <Surface elevation={2} category="medium" style={selectedMaterial === name ? [styles.surfacePressed, styles.surface ]: styles.surface}>
+      <Surface
+        elevation={2}
+        category="medium"
+        style={
+          selectedMaterial === name
+            ? [styles.surfacePressed, styles.surface]
+            : styles.surface
+        }
+      >
         <Text variant="body1" style={styles.checkboxName}>
           {name}
         </Text>
@@ -33,7 +40,6 @@ const Check = ({ name }) => {
   );
 };
 
-
 const styles = StyleSheet.create({
   checkboxContainer: {
     marginHorizontal: 15,
@@ -45,10 +51,10 @@ const styles = StyleSheet.create({
     maxWidth: '80%',
   },
   checkbox: {
-    height:30,
+    height: 30,
     width: 30,
     margin: 10,
-    borderRadius: 30
+    borderRadius: 30,
   },
   surface: {
     flexDirection: 'row',
